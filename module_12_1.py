@@ -1,5 +1,5 @@
 import unittest
-import runner
+from HumanMoveTest import runner
 
 
 class RunnerTest(unittest.TestCase):
