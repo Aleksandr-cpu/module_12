@@ -4,6 +4,8 @@ from HumanMoveTest import runner_and_tournament
 
 class TournamentTest(unittest.TestCase):
 
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
@@ -21,6 +23,7 @@ class TournamentTest(unittest.TestCase):
                 show_result[place] = runner.name
             print(show_result)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def testRunOne(self):
         self.tour = runner_and_tournament.Tournament(90, self.runner_usein, self.runner_nik)
         self.all_results = self.tour.start()
@@ -28,7 +31,7 @@ class TournamentTest(unittest.TestCase):
         self.assertTrue(last_runner_name == "Ник")
         TournamentTest.all_results[1] = self.all_results
 
-
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def testRunTwo(self):
         self.tour = runner_and_tournament.Tournament(90, self.runner_andrey, self.runner_nik)
         self.all_results = self.tour.start()
@@ -36,6 +39,7 @@ class TournamentTest(unittest.TestCase):
         self.assertTrue(last_runner_name == "Ник")
         TournamentTest.all_results[2] = self.all_results
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def testRunThree(self):
         self.tour = runner_and_tournament.Tournament(90, self.runner_usein, self.runner_andrey, self.runner_nik)
         self.all_results = self.tour.start()
